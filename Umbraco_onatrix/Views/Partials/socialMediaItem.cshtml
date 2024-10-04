@@ -1,0 +1,54 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingPage") ?? null;
+
+ 
+    var socialMediaPlatforms = settings?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("socialMediaPlatforms") ?? null;
+}
+
+@if(socialMediaPlatforms != null)
+{
+    <div class="socialmedia">
+        @foreach (var social in socialMediaPlatforms)
+        {
+            // Hämta plattformsnamn och URL
+            var platformName = social?.Content.Value<string>("platformName");
+            var platformAccountUrl = social?.Content.Value<string>("platformAccountUrl");
+
+            if (!string.IsNullOrEmpty(platformName) && !string.IsNullOrEmpty(platformAccountUrl))
+            {
+                switch (platformName.ToLower())
+                {
+                    case "facebook":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" class="socialmedia-item">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        break;
+                    case "twitter":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" class="socialmedia-item">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        break;
+                    case "instagram":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" class="socialmedia-item">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        break;
+                    // Lägg till fler plattformar här vid behov
+                    default:
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" class="socialmedia-item">
+                            <i class="fa-brands fa-globe"></i>
+                        </a>
+                        break;
+                }
+            }
+        }
+    </div>
+}

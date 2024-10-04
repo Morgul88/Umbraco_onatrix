@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@await Html.GetBlockGridItemAreasHtmlAsync(Model)
+
+@{
+    
+    var highlightText = Model.Content.Value<string>("contentHighlight") ?? "";
+    var selectedImage = Model.Content.Value<IPublishedContent>("contentImageSelected");
+    var paragraph = Model.Content.Value<string>("contentText") ?? "";
+}
+
+@if (!string.IsNullOrEmpty(highlightText))
+{
+    <div class="container bg-white card">
+        <h3>@highlightText</h3>
+        
+        @if (selectedImage != null)
+        {
+            <img src="@selectedImage.Url()" alt="Selected Image" />
+        }
+
+        <p>@paragraph</p>
+    </div>
+}
+else
+{
+    <p>Kunde inte hitta innehållet...</p>
+}

@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ var selection = Model.Ancestors().ToArray(); }
+
+@if (selection?.Length > 0){
+    <section class="contact-onatrix">
+        <div class="container contact-onatrix">
+
+            <div class="dot-img">
+                <img src="/media/dfhh1yav/component-1.png?rmode=min&width=300&height=300" />
+            </div>
+            
+            <img src="/media/j3jd5awk/img-5-e1695109900349-1.png?rmode=min&width=300&height=300"/>
+            <div class="text-area">
+                <h1>Lets us know about your next project</h1>
+                <p>Office location</p>
+                <p>Phone Number</p>
+                <p>E-mail adress</p>
+            </div>
+            
+        </div>
+
+    </section>
+
+}
+

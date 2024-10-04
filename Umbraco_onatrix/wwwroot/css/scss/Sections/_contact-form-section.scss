@@ -1,0 +1,53 @@
+.custom-section {
+    position: relative;
+    margin-bottom: 100px;
+
+    .custom-section-content {
+
+
+        .background-image {
+            height: 1000px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+
+
+
+        .container {
+            text-align: center;
+
+            .contact-form {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                position: absolute;
+                top: -600px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                margin-left: 0px;
+                margin-right: 0px;
+                background-color: white;
+                padding: 30px;
+
+                .head-line {
+                    text-align: center;
+
+                    p {
+                        color: var(--color-secondary-color);
+                        font-weight: bold;
+                    }
+
+                    h1 {
+                        margin-left: 300px;
+                        margin-right: 300px;
+                    }
+                }
+
+                .form {
+                    buttom {
+                    }
+                }
+            }
+        }
+    }
+}

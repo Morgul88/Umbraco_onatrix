@@ -1,0 +1,22 @@
+.help-you {
+    background-color: var(--color-primary-color);
+    padding: 5px;
+
+    h4 {
+        color: var(--color-secondary-color);
+        padding: 0;
+    }
+
+    p {
+        padding: 10px;
+        font-size: 16px;
+        padding: 0;
+        color: var(--color-white-color);
+    }
+
+    input {
+        margin: 16px;
+        padding:10px;
+        width:90%;
+    }
+}

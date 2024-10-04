@@ -1,0 +1,43 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    
+    
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+	var headLine = Model?.Content.Value<string>("headLine") ?? "";
+    var experts = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("experts") ?? Enumerable.Empty<Umbraco.Cms.Core.Models.Blocks.BlockListItem>();
+}
+
+<section id="service-section" class="expert-page">
+	<div class="container">
+		<p>@sectionTitle</p>
+		<h1>@headLine</h1>
+
+		<div class="content">
+			@foreach (var item in experts)
+
+
+			{
+				var selectedImage = item?.Content.Value<IPublishedContent>("selectedImage")?.Url();
+				var expertName = item?.Content.Value<string>("expertName") ?? "";
+				var expertInfo = item?.Content.Value<string>("expertInfo") ?? "";
+				
+
+				<div class="box">
+					<a href="/">
+						
+						<img src="@selectedImage">
+						<h4>@expertName</h4>
+						<p>@expertInfo</p>
+					</a>
+				</div>
+
+			}
+
+		</div>
+
+
+	</div>
+</section>

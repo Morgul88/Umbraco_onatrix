@@ -1,0 +1,39 @@
+.bg-dark {
+    background-color: var(--color-dark) !important;
+    color: var(--color-white);
+}
+
+.bg-primary {
+    background-color: var(--color-primary-color) !important;
+    color: var(--color-white);
+}
+
+.bg-default{
+    background-color: var(--color-default-color) !important;
+    color: var(--color-primary-color);
+}
+
+.bg-secondary{
+    background-color: var(--color-secondary-color) !important;
+    color: var(--color-primary-color);
+}
+
+.bg-accent{
+    background-color: var(--color-accent) !important;
+    color: var(--color-primary-color);
+}
+
+.bg-gray{
+    background-color: var(--color-gray-color) !important;
+    color: var(--color-primary-color);
+}
+
+.bg-light{
+    background-color: var(--color-white-color) !important;
+    color: var(--color-primary-color);
+}
+
+.bg-footer{
+    background-color: var(--color-footer-background-color) !important;
+    color: var(--color-white);
+}

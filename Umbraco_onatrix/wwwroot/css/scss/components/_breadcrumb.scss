@@ -1,0 +1,31 @@
+
+
+.page-title {
+    background-color: var(--color-gray-color) !important;
+
+    .container {
+        padding-top: 30px;
+        text-align: center;
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            a {
+                color: var(--color-secondary-color);
+                padding-right: 30px;
+            }
+
+            li {
+                padding: 10px;
+                font-weight: bold;
+                a{
+                    color:black;
+                    font-weight:100;
+                }
+            }
+        }
+    }
+}

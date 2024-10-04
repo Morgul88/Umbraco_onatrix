@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("8e166301-e230-4e3c-b02c-7a84a0377ae7"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible());
+}
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/breadcrumb.cshtml")
+}
+
+<section id="project-section" class="project-section">
+	<div class="container">
+		
+		<div class="content">
+			
+
+			<div class="content-left">
+				
+				
+				@foreach (var item in selection){
+					var image = item?.Value<IPublishedContent>("thumpnailImage")?.Url() ?? "";
+					var content = item?.Value<string>("contentTextInfo") ?? "";
+					var date = item?.Value<string>("projectDate") ?? "";	
+					<a class="box" href="@item.Url()">
+					
+						<div>
+							<img src="@image">
+						</div>
+						<div>
+							<h4>@item.Name()</h4>
+							<p>@content</p>
+							<p>@date</p>
+							<p>Read More <span>-></span> </p>
+						</div>
+						
+					</a>
+				}
+
+			
+			</div>
+			
+			<div class="content-right">
+				
+				@await Html.PartialAsync("blockgrid/components/helpYou")
+					
+			</div> 
+		</div>
+		
+		
+	</div>
+</section>

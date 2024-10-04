@@ -1,0 +1,21 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+	var selection = Umbraco.Content(Guid.Parse("59311d0c-390f-48da-bfb4-ede5d638a65a"))
+    .ChildrenOfType("modularPages")
+    .Where(x => x.IsVisible());
+	
+	
+	
+}
+<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul>
+

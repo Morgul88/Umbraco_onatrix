@@ -1,0 +1,49 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("364316fc-baf3-45ac-87d7-70ada2f838f4"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+
+	
+	
+}
+
+@{
+	
+	var sectionTitle = Model.Content.Value<string>("sectionTitle") ?? "";
+
+	var headLine = Model.Content.Value<string>("headLine") ?? "";
+}
+
+<section id="service-section" class="card-section">
+	<div class="container">
+		<p>@sectionTitle</p>
+		<h1>@headLine</h1>
+		
+		<div class="content">
+			@foreach (var item in selection)
+
+
+			{
+				var image = item?.Value<IPublishedContent>("thumpnailImage")?.Url() ?? "";
+				var content = item?.Value<string>("quickInfo") ?? "";
+
+				<div class="box">
+					<a href="@item.Url()">
+						<h4>@item.Name()</h4>
+						<img src="@image">
+						<p>@content</p>
+					</a>
+				</div>
+
+			}
+
+		</div>
+		
+		
+	</div>
+</section>

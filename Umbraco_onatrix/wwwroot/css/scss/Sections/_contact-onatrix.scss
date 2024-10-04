@@ -1,0 +1,25 @@
+.contact-onatrix {
+    position: relative;
+    background-color: var(--color-gray-color);
+    padding-top:60px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+
+        .dot-img {
+            position: absolute;
+            z-index: -1;
+            left: 20px;
+            height: 100%;
+            width: 50%;
+            bottom: 0;
+
+            img {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

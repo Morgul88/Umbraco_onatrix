@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{ var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
+
+@if (selection?.Length > 0)
+{
+    
+}
+
+<header>
+            <section class="bg-primary">
+                <div class="container">
+                    <div class="adress">Klarabergsviadukten 90, 111 64 Göteborg</div>
+                    <div class="socialmedia">
+                       @await Html.PartialAsync("socialmedia")
+                    </div>
+                </div>
+            </section>
+            <div class="navbar container">
+                <a class="logo" href="/">
+                    <img src="/css/images/Brand.svg" alt="">
+                </a>
+                
+                <nav>
+                    @foreach (var item in selection)
+                    {
+                       
+                        <a class="@(item.IsAncestorOrSelf(Model) ? "navbar nav-link active" : "navbar nav-link")" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                       
+                    }
+                </nav>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+        </header>

@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ var selection = Model.Ancestors().ToArray(); }
+
+@if (selection?.Length > 0)
+{
+    <section class="page-title">
+        <div class="container">
+            <h1>@Model.Name</h1>
+
+            <ul class="breadcrumb">
+
+                @foreach (var item in selection.OrderBy(x => x.Level))
+                {
+
+                    <li><a href="@item.Url(PublishedUrlProvider)">@item.Name</a> <span class="divider">></span></li>
+
+                }
+
+                <li class="active">@Model.Name</li>
+            </ul>
+        </div>
+       
+
+    </section>
+   
+    
+}

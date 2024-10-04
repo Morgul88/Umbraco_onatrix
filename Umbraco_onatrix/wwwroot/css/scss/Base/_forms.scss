@@ -1,0 +1,60 @@
+
+$input-border-color: #e0e0e0;
+$error-border-color: red;
+$error-bg-color: #ffe6e6;
+$button-bg-color: #4CAF50;
+$button-hover-color: #45a049;
+$error-text-color: red;
+
+
+.form-input-error {
+    display: none; 
+    color: $error-text-color;
+    font-size: 0.9em; 
+    margin-top: 5px;
+}
+
+
+.form-invalid-input {
+    display: block; 
+
+}
+
+.form-input {
+    
+    border: 1px solid $input-border-color;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:invalid,
+    &.form-invalid-input {
+        border-color: $error-border-color;
+        background-color: $error-bg-color;
+    }
+
+    &::placeholder {
+        color: #b0b0b0;
+        opacity: 1;
+        font-style: italic;
+    }
+}
+
+
+.form-button {
+    background-color: $button-bg-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+   
+    &:hover {
+        background-color: $button-hover-color;
+    }
+}
+
+.form-input-group{
+    padding:10px;
+}

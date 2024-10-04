@@ -1,0 +1,40 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Name ?? null;
+
+	
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/breadcrumb.cshtml")
+}
+
+<section class="service-details">
+	<div class="container">
+		<div class="content">
+			<div class="content-left">
+				<h4>About Us</h4>
+				<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+				
+				@await Html.PartialAsync("blockgrid/components/helpYou")
+
+
+			</div>
+
+			<div class="content-right">
+				@Model.Value("pageContent")
+
+
+			</div>
+		</div>
+		
+	</div>
+
+	
+</section>
+
+
+

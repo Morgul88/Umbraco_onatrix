@@ -1,0 +1,41 @@
+.Reviews {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+
+    .container {
+
+
+        p {
+            margin-top: 30px;
+            margin: 10px;
+            color: var(--color-secondary-color);
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 1700px;
+            height: 525px;
+            position: absolute;
+            background-repeat: no-repeat;
+            right: -1000px;
+            top: -70px;
+            background-position: center; 
+            background-size: cover;
+        }
+
+        .content {
+
+
+            p {
+                color: black;
+                font-weight: 100;
+            }
+        }
+    }
+}

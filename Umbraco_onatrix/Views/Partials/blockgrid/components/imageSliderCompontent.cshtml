@@ -1,0 +1,37 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+
+
+    var slides = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
+
+}
+
+<div class="image-slider">
+    
+        @foreach (var item in slides)
+        {
+            var selectedImage = item?.Content.Value<IPublishedContent>("selectedImage")?.Url() ?? null;
+            var imageDescription = item?.Content.Value<string>("imageDescription") ?? "";
+            var imageUrl = item?.Content.Value<string>("imageLinkUrl") ?? string.Empty;
+
+            @if (!string.IsNullOrEmpty(selectedImage))
+            {
+                <div class="slides">
+                    <a href="@imageUrl">
+                        <img src="@selectedImage" alt="@imageDescription">
+                    </a>
+                </div>
+                
+
+            }
+        }
+   
+   
+
+</div>
+
+
+

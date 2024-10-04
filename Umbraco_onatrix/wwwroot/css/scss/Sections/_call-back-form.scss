@@ -1,0 +1,51 @@
+.years {
+    position: relative;
+
+    .container {
+        h4{
+            color: var(--color-accent);
+        }
+        img{
+            width:200px;
+        }
+        .call-back-form {
+            position: absolute;
+            bottom: -400px;
+            right:0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 600px;
+            background-color: white;
+
+
+            .head-line {
+                height: 100px;
+                background-color: var(--color-primary-color);
+                align-content: center;
+                color: var(--color-accent-color);
+
+                p {
+                    padding: 10px;
+                    margin-top: 0;
+                    color: var(--color-secondary-color);
+                    font-weight: bold;
+                }
+
+                h1 {
+                    margin-left: 300px;
+                    margin-right: 300px;
+                }
+            }
+
+            .form {
+                padding: 10px;
+
+
+                button {
+                    width: 100%;
+                    flex-grow: 1;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

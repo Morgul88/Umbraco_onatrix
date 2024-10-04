@@ -1,0 +1,41 @@
+.service-details {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    p {
+        font-weight: bold;
+        color: var(--color-secondary-color);
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+
+
+
+        .content {
+            display: flex;
+            gap: 30px;
+            padding-left: 200px;
+
+            p {
+                font-weight: 100;
+                color: black;
+            }
+
+
+            .content-left {
+                width: 30%;
+
+                p {
+                    color: var(--color-secondary-color);
+                    font-weight: bold;
+                }
+            }
+
+            .content-right {
+                width: 70%;
+            }
+        }
+    }
+}
